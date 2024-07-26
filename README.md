@@ -1,27 +1,24 @@
-# Website
+# Portfolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+This project is my portfolio of my stage to validate my second year at Ynov Campus Toulouse. It is made using [zola](https://www.getzola.org/). It is a framework to make static site very easily.\
+The website at this url : [voluxyy.github.io](https://voluxyy.github.io)
 
-## Development server
+## Table of contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+[[_TOC_]]
 
-## Code scaffolding
+## Information
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Enterprise: Bashroom
+- Stage master: Hadrien Toma
+- Localization: Toulouse
+- Duration: 12 weeks (04/12/2023 to 23/02/2024)
 
-## Build
+### Tasks
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Learn godot to export a godot project to web version with a script.
+- D3.js graph to display the future formations session of the enterprise.
+- 2D graph with D3.js and 3D graph with three.js for the data science formation.
+- Convert graphs i made for data science formation in R (language).
+- Convert another google colab (Python) into another Kaggle (R).
+- Make an exercise for a formation using electron and cpp.
