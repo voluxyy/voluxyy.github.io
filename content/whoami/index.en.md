@@ -9,8 +9,8 @@ title = "Who am i ?"
     <img src="https://github.com/voluxyy/voluxyy.github.io/blob/main/static/whoami/profile.jpeg?raw=true" alt="Profile">
   </div>
   <div>
-    <p align="center">Bonjour 🙂</p>
-    <p>Je m'appelle Anaël Lasserre, je suis un étudiant de 19 ans à Toulouse Ynov Campus. Je viens de terminer ma deuxième année de licence. Mon parcours académique a été motivé par mon enthousiasme pour la cybersécurité et l'infrastructure des systèmes d'information, et je suis impatient de continuer à apprendre et à évoluer dans ce domaine.</p>
+    <p align="center">Hello 🙂</p>
+    <p>I'm Anaël Lasserre, a 19-year-old student at Toulouse Ynov Campus. I have recently completed my second year of bachelor studies. My academic journey has been fueled by my enthusiasm for cybersecurity and information system infrastructure, and I am excited to continue learning and growing in this area.</p>
   </div>
 </div>
 
@@ -26,6 +26,6 @@ title = "Who am i ?"
 `:,,,,;;' ,;; ,;;, ;;, ,;;, ,;;, `:,,,,:'   :;:    `;..``::::''..;'
                                                      ``::,,,,::''
 
-    Garde le sourire et passe une excellente journée !
+    Keep smiling and have a great day!
 ```    
 {% end %}

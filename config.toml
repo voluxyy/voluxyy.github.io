@@ -1,16 +1,66 @@
-# The URL the site will be built for
 title = "Anaël Lasserre"
 base_url = "https://voluxyy.github.io"
+description = "Modern, pretty, and clean theme."
+
+compile_sass = true
+minify_html = true
+author = "Anaël Lasserre"
 
 theme = "duckquill"
+
+default_language = "fr"
+
+taxonomies = [{ name = "tags", feed = true }]
+
+[languages.en]
+title = "Anaël Lasserre"
+generate_feeds = true
+
+taxonomies = [{ name = "tags", feed = true }]
 
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+highlight_theme = "css"
+highlight_themes_css = [
+  { theme = "solarized-dark", filename = "syntax-theme-dark.css" },
+  { theme = "solarized-light", filename = "syntax-theme-light.css" },
+]
+smart_punctuation = true
 
 [extra]
+primary_color = "#008000"
+# Same as primary_color, but with 20% opacity
+primary_color_alpha = "rgba(0, 128, 0, 0.2)"
+# Ditto but for the dark mode.
+# If not set regular variant will be used.
+primary_color_dark = "#006000"
+primary_color_dark_alpha = "rgba(0, 96, 0, 0.2)"
+# Use emoji as a favicon.
+# Only one emoji is being rendered, everything else is truncated.
+# emoji_favicon = "🦆🪶"
+# URL to website's issue tracker
 issues_url = "https://github.com/voluxyy/voluxyy.github.io/issues"
+# URL to website's source code
+source_url = "https://github.com/voluxyy/voluxyy.github.io"
+# If you are using Sass it will be generated there automatically.
+stylesheets = [
+  "whoami.css"
+]
+# Additional JavaScript scripts; expects them to be in the "./static/" directory.
+# scripts = [
+#   "YOUR_SCRIPT.js",
+#   "ALSO_YOUR_SCRIPT.js"
+# ]
+# Whether to show "copy code" button on all code blocks
+# that have the language set.
+# See https://www.getzola.org/documentation/content/syntax-highlighting/
+show_copy_button = true
+# Whether to show estimated read time in posts.
+# Calculated using the simple math: number of words ÷ words per minute.
+show_read_time = true
+# words_per_minute = "200"
 
 [extra.nav]
 links = [

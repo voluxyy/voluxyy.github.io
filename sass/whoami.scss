@@ -1,0 +1,12 @@
+.whoami-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}
+.crt {
+    &:hover {
+        span {
+            color: red;
+        }
+    }
+}
