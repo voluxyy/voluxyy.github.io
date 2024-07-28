@@ -1,0 +1,53 @@
+.experiences-exp {
+    margin-top: 50px;
+
+    h3, p {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: normal;
+
+            &:hover {
+                color: green;
+
+                article {
+                    border: 1px solid green;
+                }
+            }
+
+            article {
+                display: flex;
+                flex-direction: column;
+                row-gap: 5px;
+
+                padding: 20px;
+
+                border: 1px solid white;
+                
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: baseline;
+                }
+                .experiences-exp-description {
+                    margin-left: 20px;
+                    
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+                }
+            }
+        }
+    }
+}
