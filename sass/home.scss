@@ -1,0 +1,17 @@
+.home-profile-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    a {
+        img {
+            height: 200px;
+            width: 200px;
+            object-fit: contain;
+        }
+    }
+
+    @media screen and (max-width: 452px) {
+        flex-direction: column;        
+    }
+}
