@@ -1,12 +1,114 @@
-.whoami-container {
-    display: flex;
-    flex-direction: row;
-    gap: 2%;
+//#region    WHOAMI-PRES
+.whoami-pres {
+    img, p {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .whoami-pres-container {
+        display: flex;
+        flex-direction: row;
+        gap: 2%;
+        
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+            align-items: flex-start;
+            img {
+                height: 200px;
+            }
+        }
+    }
 }
-.crt {
-    &:hover {
+//#endregion WHOAMI-PRES
+
+//#region    WHOAMI-EXP
+.whoami-exp {
+    margin-top: 50px;
+
+    h3, p {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: normal;
+
+            &:hover {
+                color: green;
+
+                article {
+                    border: 1px solid green;
+                }
+            }
+
+            article {
+                display: flex;
+                flex-direction: column;
+                row-gap: 5px;
+
+                padding: 20px;
+
+                border: 1px solid white;
+                
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: baseline;
+                }
+                .whoami-exp-description {
+                    margin-left: 20px;
+                    
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+                }
+            }
+        }
+    }
+}
+//#endregion WHOAMI-EXP
+
+//#region    WHOAMI-SKILLS
+.whoami-skills {
+    margin-top: 50px;
+    
+    .whoami-skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    
+        div {
+            text-align: center;
+            width: 150px;
+            
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+}
+//#endregion WHOAMI-SKILLS
+
+//#region    WHOAMI-CRT
+.whoami-crt {
+    margin-top: 50px;
+
+    .crt:hover {
         span {
             color: red;
         }
     }
 }
+//#endregion WHOAMI-CRT
