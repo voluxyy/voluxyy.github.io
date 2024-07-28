@@ -19,17 +19,19 @@ Voici une liste des tâches que j'ai réalisées durant mon stage.
 
 La première tâche que j'ai eu lors de mon stage fut de rendre automatique le processus d'exportation de projet du moteur godot.
 
+### 1. Les templates d'exportation
+
 J'ai commencé par utiliser Godot et exporter un projet depuis l'interface graphique du logiciel.
 
-{{ image(url="https://github.com/voluxyy/voluxyy.github.io/blob/main/static/experiences/stage-bashroom-2024/godot-export-menu.png", alt="Godot export menu", no_hover=true)}}
+{{ image(url="https://github.com/voluxyy/voluxyy.github.io/blob/main/static/experiences/stage-bashroom-2024/godot-export-menu.png?raw=true", alt="Godot export menu", no_hover=true)}}
 
 Le fait d'utiliser l'interface m'a permis de comprendre et d'identifier les différents paramètres importants à l'exportation d'un projet.
 
 Notamment lors de la première exportation, si le logiciel ne détecte pas de template d'exportation alors il propose d'en télécharger un depuis le mirroir que nous voulons.
 
-{{ image(url="https://github.com/voluxyy/voluxyy.github.io/blob/main/static/experiences/stage-bashroom-2024/godot-template-download1.png", alt="Godot template download", no_hover=true)}}
+{{ image(url="https://github.com/voluxyy/voluxyy.github.io/blob/main/static/experiences/stage-bashroom-2024/godot-template-download1.png?raw=true", alt="Godot template download", no_hover=true)}}
 
-{{ image(url="https://github.com/voluxyy/voluxyy.github.io/blob/main/static/experiences/stage-bashroom-2024/godot-template-download2.png", alt="Godot template download", no_hover=true)}}
+{{ image(url="https://github.com/voluxyy/voluxyy.github.io/blob/main/static/experiences/stage-bashroom-2024/godot-template-download2.png?raw=true", alt="Godot template download", no_hover=true)}}
 
 Suite à cette découverte, j'ai ajouté le code suivant dans mon script pour vérifier si un template de la bonne version existe déjà. Si ce n'est pas le cas, alors je la télécharge depuis github.
 
@@ -59,23 +61,21 @@ else
 fi
 ```
 
+### 2. Les presets d'exportation
+
 Ensuite j'ai suivit la documentation de godot pour l'utiliser en <abbr title="Command Line Interface">CLI</abbr>. J'ai trouvé des commandes qui s'avèrent être utile pour réaliser ma mission.
 
-{{ image(url="https://github.com/voluxyy/voluxyy.github.io/blob/main/static/experiences/stage-bashroom-2024/godot-cli-doc.png", alt="Godot CLI documentation", no_hover=true)}}
+{{ image(url="https://github.com/voluxyy/voluxyy.github.io/blob/main/static/experiences/stage-bashroom-2024/godot-cli-doc.png?raw=true", alt="Godot CLI documentation", no_hover=true)}}
 
 En observant les arguments, on retrouve <mark>preset</mark> et <mark>path</mark>. <strong>Path</strong> qui signifie tout simplement le chemin absolu ou relatif vers le projet godot, alors que <strong>Preset</strong> est un peu complexe à comprendre.
 
 J'ai compris qu'ajouter un present d'exportation au projet comme sur l'image suivante :
 
-{{ image(url="", alt="Godot adding export option menu", no_hover=true) }}
+{{ image(url="https://github.com/voluxyy/voluxyy.github.io/blob/main/static/experiences/stage-bashroom-2024/godot-export-menu.png?raw=true", alt="Godot adding export option menu", no_hover=true) }}
 
 Permet de générer, si non existant, le fichier `export_presets.cfg` à la racine du projet Godot et ajoute la configuration du preset dedans avec les options qu'on lui affecte.
 
-Voici l'image d'un type d'export dans l'interface de godot :
-
-{{ image(url="https://github.com/voluxyy/voluxyy.github.io/blob/main/static/experiences/stage-bashroom-2024/godot-export-menu.png", alt="Godot export menu", no_hover=true)}}
-
-Et voici à quoi ressemble un preset dans le fichier `export_presets.cfg` :
+Voici à quoi ressemble un preset dans le fichier `export_presets.cfg` :
 
 ```txt
 [preset.0]
@@ -116,6 +116,8 @@ progressive_web_app/icon_180x180=""
 progressive_web_app/icon_512x512=""
 progressive_web_app/background_color=Color(0, 0, 0, 1)
 ```
+
+### 3. Hébergé le projet exporté
 
 Ensuite pour ouvrir le projet exporter vers de l'HTML5, j'ai utilisé un serveur python pour avoir accès aux fichiers dans mon navigateur. Voici le code que j'ai ajouté à mon script pour créer un fichier .py afin d'avoir un serveur python pour hébergé le projet exporté :
 
@@ -178,6 +180,8 @@ echo -e "$godotServer" > Exported_$name/godotServer.py
 
 Le début du code sert surtout à ne pas installer les librairies nécessaires pour faire un serveur avec python sur la machine hôte mais sur un environnement virtuel.
 
+### 4. Accèder aux ressources externes
+
 Il y a une subtilité dans la tâche que j'ai du réaliser, je devais faire un script pour rendre automatique l'exportation de projet godot vers le web. Cependant, le projet sur lequel je devais essayer mon script avait besoin d'un fichier csv externe au projet.
 
 La solution que j'ai adopté pour récupérer les informations du csv est de l'hébergé sur le repo gitlab du script, et à l'aide d'un autre serveur python avec les autorisations <abbr title="Cross-Origin Resource Sharing">CORS</abbr> nécessaires pour y accèder.
@@ -215,3 +219,57 @@ if __name__ == '__main__':
 
 echo -e "$requestServer" > Exported_$name/proxy_server.py
 ```
+
+## 2. Graphique D2.js pour afficher les futures formations
+
+La deuxième tâche qui m'a été attribué est la suivante : faire un graphique avec D3.js pour afficher les futures sessions de formations de l'entreprise.
+
+Il m'a été imposé d'utiliser [tree of life](https://observablehq.com/@d3/tree-of-life) pour réaliser ce graphique.
+
+J'ai commencé par comprendre les concepts de D3.js et ensuite de comprendre le fonctionnement du tree of life.
+
+### 1. Mise en place d'un serveur node.js
+
+Pour affiché le graphique dans mon navigateur, j'ai mis en place un serveur avec node.js.
+
+```js
+import express from 'express';
+const app = express()
+const port = 3000
+
+app.use(express.static('assets/html'));
+app.use(express.static('assets/js'));
+app.use(express.static('assets/json'));
+
+app.get('/', (req, res) => {
+  res.sendFile('index.html')
+})
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`)
+})
+```
+
+L'objectif de ce serveur est juste de rendre accessible les ressources : html, js et autres fichiers externes utiles au graphique.
+
+### 3. Création du graphique
+
+Afin d'afficher le graphique, j'ai eu besoin d'un fichier html pour appeler le code javascript dans le navigateur.
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d3js - Bashroom</title>
+
+    <script type="module" src="index.js"></script>
+</head>
+<body>
+</body>
+</html>
+```
+
+Maintenant que tout était prêt pour afficher le grahique dans mon navigateur, il était temps de le réaliser.
+
